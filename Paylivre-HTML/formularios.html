@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulários</title>
+</head>
+<body>
+    <!-- 
+        Form é Block content (igual a div)
+        *action (o elemento action vai me permitir agir quando alguem submeter com o botão enviar)
+        *method (tipo get ou tipo post. Usa-se o Post quando vamos receber dados e eles vão ser armazenados em algum lugar. Ex. formulário de contato de site.
+        O method get é o método padrão quando vc não cita o método. Ele é usado quando você quer buscar algo)
+
+    -->
+    <form id="form-test" action="" method="post">
+        
+    </form><br>
+    <!-- 
+        Fielset é uma caixinha para agrupar os elementos do formulário e ele é semântico e foca na acessibilidade.
+        Um atributo importante dele é o name, que vai ser referenciado lá no banco de dados. Vai ser associado e enviado para o banco de dados.
+        Outro atributo é o form (o fielset fora do formulário não vai funcionar, porém, se eu colocar um id nesse formulário e eu associar esse identificador com o fieldset no form, o conteúdo que eu colocar no fielset vai entrar dentro do formulário e vai ser disparado.
+        Bastante recursos de formulários utilizam esse form no fieldset. O form recebe uma identificação e o fielset gera a associação através do form. Mas é fora de prática. Não recomendável, mas dá para fazer isso.)
+    -->
+    <fieldset name="contato" form="form-test">
+
+    </fieldset> <br>
+    
+    
+    <form action="" method="post">
+        <fieldset name="contato">
+            <legend>Preencha o Formulário de Contato</legend>
+        </fieldset><br>
+
+        <!-- Button
+        Ele tem uma série de atributos.
+        * type 
+            -> submit - vai pegar todo o conteúdo que está preenchido no formulário e vai disparar.
+            -> reset  - vai limpar todos os campos do formulário
+            -> button - é do tipo botão mesmo e você pode associá-lo a um name, a uma class, um identificador. O interessante de colocar um name é para as regras de negócio ao qual você vai guardar as informações. 
+        -->
+        <button>Enviar</button><br>
+        <button type="submit">Enviar</button><br>
+        <button type="reset">Limpar</button><br>
+        <button type="button" name="" class="" id="">Limpar</button><br>
+
+    </form><br>
+
+
+    <!-- 
+        Label
+        *Serve para Associar e identificar um ou mais tag de entrada de dados.
+        *Ajuda bastante na acessibilidade
+        Atributos:
+            - for
+            * usado para fazer a conexão com outros tipos de elementos de formulários
+        O label precisa se conectar com a caixa (o nome tem como referência a caixa de texto e a caixa de texto tem como referência o nome.) Para isso eu preciso colocar uma conexão no input. Eu preciso falar que o input tem um id="nome". Mas o input tem que estar dentro do label para funcionarem se conectarem.
+        Se eu fizer um label de input tipo number, eu tenho ue usar o for para conectar a caixa à idade e um identificador no input. E usando o for para a conexão, o input nao fica dentro do label para a conexão existir.
+    -->
+    
+
+    <form>
+        <label>Nome:
+            <input type="text" id="nome">
+        </label>
+    
+        <label for="age">Idade:</label>
+            <input type="number" id="age">
+    </form><br>
+
+    <!-- 
+        <datalist>
+        *lista de valores com sugestões para algum elemento input
+        *Usuário poderá selecionar um dos valores ou colocar novos valores.
+
+        Para eu fazer a lista se conectar com o input eu preciso de uma id na datalist e uma referência no input.
+
+        O site caniuse.com dá pra ver se o datalist está funcionando em todos os navegadores. Os que tem suporte.
+
+    -->
+    <form>
+        <datalist id="prof-list">
+            <option >Luan</option>
+            <option >Jenifer</option>
+            <option >Regis</option>
+        </datalist>
+        <input type="text" list="prof-list" placeholder="Escolha seu professor">
+    </form><br>
+
+    <form action="" method="post" enctype="multipart/form-data">
+        <fieldset>
+            <legend>Trabalhando com Inputs</legend>
+
+        <!--Input de Text
+        Input é um elemento que se auto fecha, é um elemento vazio.
+        Se vc der um Ctrl+espaço no type, você vai ver uma série de sugestões de tipos de caixas para você trabalhar dentro do formulário.
+        Além do type podemos trabalhar vários atributos:
+        -placeholder - Permite que eu coloque um texto de auxilio
+        -size - Tamanho da minha caixa
+        -minlenght - Mínimo de carateres dentro da caixa
+        -maxlenght - Maximo de carateres dentro da caixa
+        -title - mensagem ao colocar números a menos ou a mais na caixa.
+        -required - atributo boleano.Ele bloqueia a minha caixa e não deixa eu avançar até que preencha o conteúdo da caixa.
+        -disable - Não consigo preencher dentro da caixa 
+        -readonly - só permite leitura e não consigo fazer modificações.
+        -->
+            <input 
+            type="text"
+            placeholder="Preencha o seu nome"
+            size="60"
+            minlength="8"
+            maxlength="20"
+            title="Você precisa colocar mais de 8 caracteres e menos de 20"
+            required
+            disabled
+            readonly><br>
+        
+        <!--Input Number
+        -->
+
+            <input 
+            type="number"
+            size="50"
+            minlength="6"
+            maxlength="12"
+            title="Preencha o dado"
+            ><br>
+
+        <!--Input Email-->
+
+            <input 
+            type="email"
+            size="24"
+            title="Preencha o dado"
+            required
+            >
+            <br>
+            <button type="submit">Enviar</button><br>
+
+        <!--Input Password-->
+
+            <input 
+            type="password"
+            size="24"
+            title="Sua senha deve conter 8 ou mais caracteres de pelo menos um número e uma letra maiúscula e outra minúscula"
+            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,})"
+            required
+            inputmode="numeric"> 
+        <!--Inputmode - sobe teclado numérico em mobile-->
+            ><br>
+
+        <!--Input hidden-->
+
+            <input type="hidden" value="Eu estou escondido"><br>
+        <!--Não se vê o input hidden no site, mas podemos ver inspecionando os elementos no código. Ele é usado geralmente para armazenar senhas criptografadas.Não é o recomendado, mas ainda vemos alguns desenvolvedores usando esse modo, colocando criptografia dentro de values-->
+
+        <!--Input color-->
+            <input type="color"><br> 
+        <!--Forma um picker na caixa. Fica colorido.-->
+
+        <!--Input Date, Date-time-local, week , month, time-->
+            <input type="date"><br>
+            <input type="datetime-local"><br>
+
+        <!--Input type= check (checkbox)-->
+            <label for="area"><br>
+            Seu interesse maior é por qual área?
+            </label>
+
+            <div>
+                <input 
+                type="checkbox" 
+                name="interesse" 
+                id="frontend" 
+                value="Front-end Luan monteiro">
+            <label for="frontend"> Front-end Luan Monteiro</label>
+
+                <input 
+                type="checkbox" 
+                name="interesse" 
+                id="backend" 
+                value="Back-end Regis Santos">
+            <label for="backend">Back-end Regis Santos</label>
+
+                <input 
+                type="checkbox" 
+                name="interesse" 
+                id="designuiux" 
+                value="Design UI/UX Jenifer Vieira">
+            <label for="designuiux">Design UI/UX Jenifer Vieira</label>
+        
+        <!--Todos os checkbox precisam ter um name para não ficar bagunçado, todos vão fazer parte do agrupamento interesse.Todos eles tem que receber o mesmo nome. E o que vai ser diferente é o id. Assim  fica mais organizado para ser mandado para o banco de dados. 
+        Mas podemos deixar com mais acessibilidade colocando um label for para conexão do texto com o checkbox
+        -->
+            </div>
+            <br>
+            <br>
+            <br>
+
+        <!--Radio Button-->
+            <h3>Deseja receber notificação da be.academy</h3>
+            <label for="yes">Sim</label>
+                <input type="radio" id="yes" checked name="notification" value="yes">
+
+            <label for="no">Não</label>
+                <input type="radio" id="no" name="notification" value="no">
+        <!-- 
+            Existem regras de uso, então damos um id para cada, para se conectarem.O value vai mandar no banco de dados o yes e o no. Para agrupar, ambos levam o mesmo name . Podemos deixar eles habilitados com o checked.Ele já vem pré-habilitado usando checked.
+        -->
+
+        <!-- 
+            Input Select
+
+            Elemento de formulário capaz de criar uma lista de opções a serem selecionadas, DropDown.
+
+            Vou colocar value nas options porque a intensão é que vá para um banco de dados, vá para uma regra de negócios e sejam tratados.
+            Posso colocar um name no select e para identificar posso colocar um id para fazer conexão com o label (os dois com o mesmo nome). Posso colocar um size e escolher quantas opções ele vai mostrar direto na lista, de início. E se eu colocar multiple size, apertando o cntrl eu consigo selecionar mais de uma opção. Ele armazena mais de uma opção no banco de dados.
+        -->
+        
+            <Label for="teacher">Professor</Label>
+                <select name="select-teacher" id="teacher" multiple size="4">
+                    <option value="">Selecione um professor</option>
+                    <option value="">Luan Santos</option>
+                    <option value="">Moacir Garcia</option>
+                    <option value="">Jenifer Vieira</option>
+                    <option value="">Regis Eduardo</option>
+                </select>
+                <br>
+                <br>
+
+<!-- Input Search
+
+    *Elemento usado para pesquisar conteúdo
+    *Parecido com o campo "text" pode receber atributos e comportamentos.
+    Posso escolher o comportamento que eu quero e adicionar o required para reforçar a mensagem dentro da caixa caso houver erro de procura. Ele vai fazer uma dupla validação no search
+    
+
+-->
+
+            <input 
+                type="search" 
+                name="" 
+                title="" 
+                placeholder="Busque o usuário pelo id" 
+                size="24" 
+                attern="[0-9]{0,3}"
+                title="Busque por o id de até 3 dígitos">
+                <br>
+                <br>
+
+<!--Input file
+    Manipulando arquivos com o file
+    
+    *Usuário poderá fazer um upload de 1 ou mais arquivos de acordo com a extensão.
+    Posso colocar um accept para ele escolher o tipo de arquivo que eu queira que ele aceite. Por exemplo: .doc, .pdf, qualquer tipo de arquivo de áudio (.audio/*), Imagem de qualquer extensão (.image/*) ou só .png, ou .jpg,  posso escolher somente .xlsx (só formato de planilha de excel, todos os outros ele não vai conseguir ler.) Ou seja, eu escolho quais extensões eu quero que ele aceite.
+    Multiple - ele aceita multiplos arquivos. Voce pode escolher mais de um e a mensagem muda de "escolher arquivo" para "escolher arquivos" e você seleciona mais de um arquivo.
+    Posso dar um name pra ele para poder associar com o banco de dados. E posso dar um id pra ele também. Só que para utilizá-lo no formulário eu tenho que colocar um enctype "multipart/form-data" lá no form, para o formulário ficar apto a receber arquivos.
+
+-->
+
+            <input 
+                type="file"
+                value=""
+                accept="image/*"
+                multiple
+                name=""
+                id="">
+                <br> <br>
+
+               
+
+
+        </fieldset><br> 
+
+
+
+    </form>
+</body>
+</html>
