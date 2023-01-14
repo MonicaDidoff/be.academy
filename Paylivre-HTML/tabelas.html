@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabelas</title>
+</head>
+<body>
+    <table>
+        <caption>Tabela de Professores</caption>
+        <!-- 
+            Caption
+                * Serve para inserir títulos na tabela
+            Linhas - Rows - tr
+            Colunas- Cols - td
+            Cabeçalho-head- th
+            Posso deixar essa tabela com mais semântica, então:
+            Coloco o cabeçalho da tabela dentro de um <thead>
+            Coloco o corpo da tabela dentro de um <tbody>
+            Coloco o rodapé da tabela dentro de um <tfoot>
+        -->
+        <thead>
+            <tr>
+                <th>Professor</th>
+                <th>Idade</th>
+                <th>Curso</th>  
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>Luan Santos</td>
+                <td>30</td>
+                <td>Front-end</td>  
+            </tr>
+
+        <!--Posso também fazer tr*3>td*3 e o Emmet já me dá a estrutura pronta-->
+            <tr>
+                <td>Jenifer Vieira</td>
+                <td>30</td>
+                <td>Economia</td>
+            </tr>
+            <tr>
+                <td>Regis Santos</td>
+                <td>35</td>
+                <td>PHP</td>
+            </tr>
+            <tr>
+                <td>Moacir</td>
+                <td>20</td>
+                <td>Office</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <td>Total de Professores</td>
+            <td>4</td>
+        </tfoot>  
+    </table>
+
+    <!--Tabela Complexa-->
+    <br>
+    <table>
+        <caption>
+            Professores be.academy 🔥
+        </caption>
+
+        <colgroup> <!-- manipulação de colunas-->
+            <col span="1" style="background-color: red;">
+            <col span="2" style="background-color: blue;">
+            <col span="2" style="background-color: green;">
+        </colgroup>
+        <thead>
+            <tr>
+                <th rowspan="2"><br>Be.academy</th>
+                <th colspan="2">Professores Front-end</th>
+                <th colspan="2">Professores Back-end</th>
+            </tr>
+        </thead>
+        <thead>
+            <tr>
+                <th rowspan="2"></th>
+                <th>Entrada</th>
+                <th>Saída</th>
+                <th>Entrada</th>
+                <th>Saída</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>Horário de Sexta-feira</th>
+                <th>08:00</th>
+                <th>15:00</th>
+                <th>09:00</th>
+                <th>15:00</th>
+            </tr>
+            <tr>
+                <th>Horário de Sábado</th>
+                <th>08:00</th>
+                <th>14:00</th>
+                <th>08:00</th>
+                <th>14:00</th>
+            </tr>
+        </tbody>
+        <tfoot>
+            <td>Total</td>
+            <td>2</td>
+        </tfoot>
+    </table>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulários parte 2</title>
+</head>
+<body>
+<!--Textarea 
+    *Elemento de texto com mais de 1 linha
+    *Muito utilizado em textos maiores
+
+    Posso colocar um form com action de uma página, mas não vai acontecer nada porque essa página não existe.
+    Ao montar o textarea o google Chrome permite que eu mude o tamanho, mas dá pra limitar de uma outra forma.
+    Assim que colocar o textarea já devemos fechar e não passar para a proxima linha do código pois ele vai entender que você está dando um espaco e o usuário vai ter que retornar para escrever no topo do textarea.Então já deve ser fechado na mesma linha.
+    Vamos criar um label para ter um campo de mensagem.
+    Vamos dar um id e um name com o mesmo nome do label.
+    Vamos manipular a quantidade de colunas e linhas que ele vai possuir com cols e rows. E posso limitar a digitação com  a quantidade de linhas com minlenght e maxlenght.
+    Ele já faz a quebra de linha sozinho com o tipo wrap="soft" com o wrap sem ter que colocar, por natureza, por default, mas se eu colocar um wrap="off" ele vai digitar ao infinito e além sem quebrar a linha.
+
+
+-->
+    <form action="confirm.html">
+        <textarea></textarea><br>
+
+        <label for="message">Mensagem:</label>
+        <textarea 
+        id="message" 
+        name="message"
+        cols="20"
+        rows="8"
+        minlength="10"
+        maxlength="100"
+        wrap="off"
+        ></textarea> 
+        
+<!-- 
+    Optgroup
+    *Elemento utilizado para agrupar uma sequencia de seleções ou opções
+    Posso colocar um size="5" e ai ele mostra 5 opções de cada vez.
+    Posso também usar um disable e desabilitar algumas das opções.
+-->
+    <br><br>
+    <label>Escolha seu professor</label>
+    <br>
+    <select name="prof" multiple size="5">
+        <optgroup label="Professores">
+            <option value="Luan"disabled>Luan</option>
+            <option value="Regis">Regis</option>
+            <option value="Jenifer">Jenifer</option>
+            <option value="Moacir">Moacir</option>
+        </optgroup>
+        <optgroup label="Cursos">
+            <option value="Front-end">Front-end</option>
+            <option value="Back-end">Back-end</option>
+            <option value="DesignUI/UX">Design UI/UX</option>
+            <option value="DevOps">DevOps</option>
+        </optgroup>
+    </select>
+    
+    </form>
+    
+</body>
+</html>
